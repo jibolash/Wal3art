@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShoppingCategory">
+
+    <TextView
+        android:id="@+id/welcomeMessage"
+        android:layout_width="match_parent"
+        android:text="If you are seeing this message, you shouldn't be here"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/categoriesHeader"
+        android:layout_width="match_parent"
+        android:text="Shop by Categories"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeMessage"
+        android:labelFor="@id/categoriesHeader"
+        android:layout_margin="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/electronics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categoriesHeader"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/electronics"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electronics"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/clothing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/electronics"
+        android:layout_below="@id/categoriesHeader"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clothing"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clothing"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/beauty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/electronics"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/beauty"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beauty"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/beauty"
+        android:layout_below="@id/clothing"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/food"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food"/>
+
+    </LinearLayout>
+</RelativeLayout>

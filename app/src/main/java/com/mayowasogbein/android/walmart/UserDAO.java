@@ -6,7 +6,7 @@ import java.util.List;
 public class UserDAO {
     public static List<User> users = new ArrayList<>();
 
-    public UserDAO() {
+    public static void loadUsers() {
         users.add(new User("bill@gmail.com", "clinton"));
         users.add(new User("barack@gmail.com", "obama"));
         users.add(new User("george@gmail.com", "bush"));

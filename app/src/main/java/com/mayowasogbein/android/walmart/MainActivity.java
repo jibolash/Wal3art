@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username = usernameField.getText().toString();
                 String password = passwordField.getText().toString();
-
+                UserDAO.loadUsers();
                 for(User user : UserDAO.users){
                     if(user.getUsername().equals(username)) {
                         if(user.getPassword().equals(password)) {

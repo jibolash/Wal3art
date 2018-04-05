@@ -13,24 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<User> users = new ArrayList<>();
     private EditText usernameField, passwordField;
     private Button signIn;
+    private Button createNewAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        users.add(new User("bill@gmail.com", "clinton"));
-        users.add(new User("barack@gmail.com", "obama"));
-        users.add(new User("george@gmail.com", "bush"));
-        users.add(new User("bola@gmail.com", "tinubu"));
-        users.add(new User("nelson@gmail.com", "mandela"));
 
         signIn = findViewById(R.id.signInButton);
         usernameField = findViewById(R.id.emailField);
         passwordField = findViewById(R.id.passwordField);
+        createNewAccount = findViewById(R.id.createAccountButton);
 
         usernameField.addTextChangedListener(new TextWatcher() {
             @Override
@@ -51,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 String username = usernameField.getText().toString();
                 String password = passwordField.getText().toString();
 
-                for(User user : users){
+                for(User user : UserDAO.users){
                     if(user.getUsername().equals(username)) {
                         if(user.getPassword().equals(password)) {
                             Intent i = new Intent(MainActivity.this, ShoppingCategory.class);
@@ -60,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
+            }
+        });
+
+        createNewAccount.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(i);
             }
         });
     }

@@ -1,5 +1,6 @@
 package com.mayowasogbein.android.walmart;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,11 +25,11 @@ public class ElectronicsListViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_electronics_list_view);
 
         List<Product> products = new ArrayList<>();
-        products.add(new Product("Television", 140.0, "Black", "url", "1", "Sony 32 inch tv"));
-        products.add(new Product("Phone", 260.0, "Blue", "url", "2", "LG end of line phone"));
-        products.add(new Product("Ear pods", 320.0, "Yellow", "url", "3", "High end earpiece"));
-        products.add(new Product("Dre Beats", 120.0, "Pink", "url", "4", "Super performance headphones"));
-        products.add(new Product("Macbook", 2300.0, "Red", "url", "5", "High capacity laptop"));
+        products.add(new Product("Television", 140.0, "Black", "url", "114390", "Sony 32 inch tv"));
+        products.add(new Product("Phone", 260.0, "Blue", "url", "283619", "LG end of line phone"));
+        products.add(new Product("Ear pods", 320.0, "Yellow", "url", "472013", "High end earpiece"));
+        products.add(new Product("Dre Beats", 120.0, "Pink", "url", "012844", "Super performance headphones"));
+        products.add(new Product("Macbook", 2300.0, "Red", "url", "925175", "High capacity laptop"));
 
         ListView productListView = findViewById(R.id.productList);
 
@@ -39,8 +40,13 @@ public class ElectronicsListViewActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Product product = (Product) adapterView.getItemAtPosition(i);
-                Toast.makeText(getApplicationContext(), product.getDesc(), Toast.LENGTH_LONG).show();
-            }
+//                Toast.makeText(getApplicationContext(), product.getDesc(), Toast.LENGTH_LONG).show();
+
+
+                Intent productDetailsIntent = new Intent(ElectronicsListViewActivity.this, ProductDetailsActivity.class);
+                productDetailsIntent.putExtra("product", product);
+                startActivity(productDetailsIntent);
+                }
         });
     }
 }

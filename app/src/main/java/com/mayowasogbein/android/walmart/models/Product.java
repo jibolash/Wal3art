@@ -1,6 +1,8 @@
 package com.mayowasogbein.android.walmart.models;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable{
     private String Title;
     private double price;
     private String color;

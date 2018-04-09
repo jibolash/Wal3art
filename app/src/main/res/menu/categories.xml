@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="Electronics"
+        android:id="@+id/electronics"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:title="Clothing"
+        android:id="@+id/clothing"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:title="Beauty"
+        android:id="@+id/beauty"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:title="Food"
+        android:id="@+id/food"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:title="Logout"
+        android:id="@+id/logout"
+        app:showAsAction="always">
+    </item>
+</menu>

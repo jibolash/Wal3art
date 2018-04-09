@@ -17,7 +17,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".ShoppingCategory" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".BeautySpinner" />
+        <activity android:name=".ClothingListViewActivity" />
+        <activity android:name=".FoodListViewActivity" />
+        <activity android:name=".ElectronicsListViewActivity" />
+        <activity
+            android:name=".TabbedActivity"
+            android:label="@string/title_activity_tabbed"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

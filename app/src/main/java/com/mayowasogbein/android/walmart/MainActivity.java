@@ -44,15 +44,19 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+//                Intent i = new Intent(MainActivity.this, ShoppingCategory.class);
+//                i.putExtra("username", "test@gmail.com");
+//                startActivity(i);
+
                 String username = usernameField.getText().toString();
                 String password = passwordField.getText().toString();
                 UserDAO.loadUsers();
                 for(User user : UserDAO.users){
                     if(user.getUsername().equals(username)) {
                         if(user.getPassword().equals(password)) {
-                            Intent i = new Intent(MainActivity.this, ShoppingCategory.class);
-                            i.putExtra("username", username);
-                            startActivity(i);
+                            Intent categoryIntent = new Intent(MainActivity.this, ShoppingCategory.class);
+                            categoryIntent.putExtra("username", username);
+                            startActivity(categoryIntent);
                         }
                     }
                 }

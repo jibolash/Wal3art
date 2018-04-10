@@ -1,6 +1,8 @@
 package com.mayowasogbein.android.walmart;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,6 +19,13 @@ public class MainActivity extends AppCompatActivity {
     private Button signIn;
     private Button createNewAccount;
 
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    public static final String USERNAME = "username";
+    public static final String PASSWORD = "password";
+
+    SharedPreferences sharedpreferences;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +37,10 @@ public class MainActivity extends AppCompatActivity {
         passwordField = findViewById(R.id.passwordField);
         createNewAccount = findViewById(R.id.createAccountButton);
 
-        usernameField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+        usernameField.setText(sharedpreferences.getString(USERNAME, ""));
+        passwordField.setText(sharedpreferences.getString(PASSWORD, ""));
 
         signIn.setOnClickListener(new View.OnClickListener() {
 
@@ -54,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 for(User user : UserDAO.users){
                     if(user.getUsername().equals(username)) {
                         if(user.getPassword().equals(password)) {
+
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                            editor.putString(USERNAME, username);
+                            editor.putString(PASSWORD, password);
+                            editor.commit();
+
                             Intent categoryIntent = new Intent(MainActivity.this, ShoppingCategory.class);
                             categoryIntent.putExtra("username", username);
                             startActivity(categoryIntent);
